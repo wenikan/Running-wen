@@ -61,8 +61,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.osmdroid.events.MapEventsReceiver;
+import org.osmdroid.tileprovider.tilesource.MapTileIndex;
+import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.tileprovider.tilesource.XYZTileSource;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MapEventsOverlay;
@@ -105,9 +106,18 @@ public class MainActivity extends BaseActivity {
     public static final String POI_LONGITUDE = "POI_LONGITUDE";
     public static final String POI_LATITUDE = "POI_LATITUDE";
 
-    private static final XYZTileSource ESRI_SATELLITE = new XYZTileSource(
+    private static final OnlineTileSourceBase ESRI_SATELLITE = new OnlineTileSourceBase(
             "ESRI Satellite", 2, 20, 256, ".jpg",
-            new String[]{"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/"});
+            new String[]{"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/"}) {
+        @Override
+        public String getTileURLString(long pMapTileIndex) {
+            return getBaseUrl()
+                    + MapTileIndex.getZoom(pMapTileIndex) + "/"
+                    + MapTileIndex.getY(pMapTileIndex) + "/"
+                    + MapTileIndex.getX(pMapTileIndex)
+                    + mImageFilenameEnding;
+        }
+    };
 
     private OkHttpClient mOkHttpClient;
     private SharedPreferences sharedPreferences;
