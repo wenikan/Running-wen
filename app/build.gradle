@@ -3,8 +3,8 @@ plugins {
 }
 
 android {
-    compileSdk = 32
-    buildToolsVersion = '34.0.0'
+    compileSdk = 35
+    buildToolsVersion = '35.0.0'
     namespace = 'com.zcshou.gogogo'
 
     signingConfigs {
@@ -25,8 +25,7 @@ android {
     defaultConfig {
         applicationId "com.zcshou.gogogo"
         minSdkVersion 27
-        //noinspection ExpiredTargetSdkVersion
-        targetSdkVersion 32
+        targetSdkVersion 35
         versionCode 1123
         versionName '1.12.3' // https://semver.org/lang/zh-CN/
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
