@@ -42,8 +42,8 @@ jobs:
           BUILD_EXIT=${PIPESTATUS[0]}
           if [ $BUILD_EXIT -ne 0 ]; then
             echo ""
-            echo "========== ERRORS =========="
-            grep -E "^.*error:.*$|FAILURE:|> Task|Caused by:|What went wrong:" /tmp/build.log | head -60
+            echo "========== COMPILE ERRORS =========="
+            grep -n "\.java:[0-9]*: error:\|error: cannot find symbol\|error: package\|symbol:\|location:\|Caused by:\|What went wrong:" /tmp/build.log | head -80
             exit 1
           fi
 
