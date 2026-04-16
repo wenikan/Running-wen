@@ -35,10 +35,15 @@ jobs:
 
       - name: Build Debug APK
         run: |
-          ./gradlew assembleDebug 2>&1 | tee /tmp/build.log
-          if grep -q "BUILD FAILED" /tmp/build.log; then
-            echo "========== BUILD ERRORS =========="
-            grep -A3 -E "error:|FAILURE:|What went wrong:|Caused by:" /tmp/build.log | head -80
+          ./gradlew assembleDebug \
+            --no-configuration-cache \
+            --warning-mode none \
+            2>&1 | tee /tmp/build.log
+          BUILD_EXIT=${PIPESTATUS[0]}
+          if [ $BUILD_EXIT -ne 0 ]; then
+            echo ""
+            echo "========== ERRORS =========="
+            grep -E "^.*error:.*$|FAILURE:|> Task|Caused by:|What went wrong:" /tmp/build.log | head -60
             exit 1
           fi
 
