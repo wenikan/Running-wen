@@ -8,12 +8,6 @@ android {
     namespace = 'com.zcshou.gogogo'
 
     signingConfigs {
-        debug {
-            storeFile file('../keystore/GoGoGo.jks')
-            storePassword 'GoGoGo'
-            keyAlias 'GoGoKey'
-            keyPassword 'GoGoGo'
-        }
         release {
             storeFile file('../keystore/GoGoGo.jks')
             storePassword 'GoGoGo'
@@ -52,7 +46,7 @@ android {
             multiDexEnabled = true
         }
         debug {
-            signingConfig = signingConfigs.debug
+            // uses default debug keystore
         }
     }
 

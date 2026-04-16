@@ -34,7 +34,13 @@ jobs:
         run: echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace 2>&1
+        run: |
+          ./gradlew assembleDebug 2>&1 | tee /tmp/build.log
+          if grep -q "BUILD FAILED" /tmp/build.log; then
+            echo "========== BUILD ERRORS =========="
+            grep -A3 -E "error:|FAILURE:|What went wrong:|Caused by:" /tmp/build.log | head -80
+            exit 1
+          fi
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
