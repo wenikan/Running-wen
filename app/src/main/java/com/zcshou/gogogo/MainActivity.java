@@ -466,7 +466,7 @@ public class MainActivity extends BaseActivity {
         sCurrentMarker.setIcon(getResources().getDrawable(R.drawable.icon_gcoding, getTheme()));
         sCurrentMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         sCurrentMarker.setTitle(mMarkName != null ? mMarkName : "");
-        sCurrentMarker.setInfoWindowShown(false);
+        sCurrentMarker.closeInfoWindow();
         mMapView.getOverlays().add(sCurrentMarker);
         mMapView.invalidate();
     }
@@ -529,7 +529,7 @@ public class MainActivity extends BaseActivity {
                     sCurrentMarker.setPosition(mMarkGeoPoint);
                     sCurrentMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
                     sCurrentMarker.setTitle(name != null ? name : "");
-                    sCurrentMarker.setInfoWindowShown(false);
+                    sCurrentMarker.closeInfoWindow();
                     sMapView.getOverlays().add(sCurrentMarker);
                     sMapView.getController().animateTo(mMarkGeoPoint);
                     sMapView.getController().setZoom(18.0);

@@ -444,7 +444,7 @@ public class JoyStick extends View {
         mJoystickMarker.setPosition(point);
         mJoystickMarker.setIcon(getResources().getDrawable(R.drawable.icon_gcoding, mContext.getTheme()));
         mJoystickMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        mJoystickMarker.setInfoWindowShown(false);
+        mJoystickMarker.closeInfoWindow();
         mMapView.getOverlays().add(mJoystickMarker);
         mMapView.getController().animateTo(point);
         mMapView.getController().setZoom(18.0);
