@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity {
     private LocationCallback mLocationCallback;
     private double mCurrentLat = 0.0;
     private double mCurrentLon = 0.0;
-    private String mCurrentCity = null;
+    public static String mCurrentCity = null;
     private boolean isFirstLoc = true;
 
     // Mock service
