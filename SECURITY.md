@@ -1,57 +1,57 @@
-# 安全策略 / Security Policy
+# 安全政策 / Security Policy
 
-## 支持的版本 / Supported Versions
+## 支援版本 / Supported Versions
 
-如果您当前正在使用一个不受支持的版本，请先升级到一个受支持的新版本。新版本可能已经修复了您发现的安全问题！
+如果您目前使用的是不受支援的舊版本，請先升級至最新受支援版本。新版本可能已修復您發現的安全問題！
 
-If you are using an old unsupported version, please update to an new supported version. Maybe the new version has fixed the vulnerability!
+If you are using an old unsupported version, please update to a new supported version. Maybe the new version has fixed the vulnerability!
 
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.10.x   | :white_check_mark: |
 | < 1.10   | :x:                |
 
-## 报告漏洞 / Reporting a Vulnerability
+## 回報漏洞 / Reporting a Vulnerability
 
-团队和社区非常重视影梭中的安全问题。感谢您为负责任地披露您的发现所做的努力。
+我們非常重視 飛WEN 中的安全問題。感謝您負責任地揭露您的發現。
 
-The team and community take security issues in GoGoGo seriously. We appreciate your efforts to responsibly disclose your findings. 
+We take security issues in 飛WEN seriously. We appreciate your efforts to responsibly disclose your findings.
 
-如果您发现了任何安全漏洞，请给 zcsexp@gmail.com 发送邮件。邮件标题为 `[SECURITY][影梭] xxxxx`, 内容格式如下所示：
+如果您發現了任何安全漏洞，請透過 GitHub Issues 回報，標題格式為 `[SECURITY][飛WEN] xxxxx`，內容格式如下：
 
-To report a security issue, email to zcsexp@gmail.com. The mail title should be `[SECURITY][GoGoGo] xxxxx` and content are as below:
+To report a security issue, please open a GitHub Issue with title `[SECURITY][飛WEN] xxxxx` and the following content:
 ```
 ### 漏洞描述 / Vulnerability description
 
 
 
-<!-- 请在上方详细地描述漏洞，然后删除该注释。  -->
+<!-- 請在上方詳細描述漏洞，然後刪除此注釋。 -->
 <!-- Please describe the vulnerability in detail above, then delete this comment. -->
 
-### 版本信息 / Version Info
+### 版本資訊 / Version Info
 
-- 影梭版本 / GoGoGo Version : 
-- 系统版本 / OS Version : 
+- 飛WEN 版本 / 飛WEN Version : 
+- 系統版本 / OS Version : 
 
-<!-- 请在上方描述出问题的影梭版本及使用的系统版本，然后删除该注释。 -->
-<!-- Please describe version of GoGoGo and used OS above, then delete this comment. -->
+<!-- 請在上方描述出問題的版本及作業系統版本，然後刪除此注釋。 -->
+<!-- Please describe the version of 飛WEN and OS above, then delete this comment. -->
 
-### 复现步骤 / Steps to Reproduce
+### 重現步驟 / Steps to Reproduce
 
 1. 
 2. 
 
-<!-- 请在上方描述如何复现该问题，然后删除该注释。 -->
-<!-- Please describe how to reproduce the bug, then delete this comment. -->
+<!-- 請在上方描述如何重現此問題，然後刪除此注釋。 -->
+<!-- Please describe how to reproduce the bug above, then delete this comment. -->
 
-### 如何修复 / How to fix
+### 修復建議 / How to fix
 
 
 
-<!-- 如果您有对应的修复方法，请在上方描述你的方法，然后删除该注释。欢迎直接提交一个 PR。 -->
+<!-- 如果您有修復方法，請在上方描述，然後刪除此注釋。歡迎直接提交 PR。 -->
 <!-- If you know how to fix, please describe your method above, then delete this comment. Welcome to submit a PR. -->
 ```
 
-我们将努力尽快做出回复。感谢您的贡献！
+我們將盡快回覆。感謝您的貢獻！
 
 We'll endeavor to respond quickly. Thanks for your contribution.
