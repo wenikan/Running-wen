@@ -1,0 +1,18 @@
+{
+  "name": "福岡 5日遊",
+  "short_name": "福岡",
+  "description": "2025 福岡旅遊行程",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#2c1a0e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
