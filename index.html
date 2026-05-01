@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>福岡 5日遊 ✈️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+    :root {
+      --cream: #faf7f2;
+      --warm: #f5ede0;
+      --accent: #d4855a;
+      --accent2: #b5694a;
+      --text: #3a2e28;
+      --text-light: #8a7060;
+      --pin: #e05555;
+      --tag-bg: #fff0e8;
+      --border: #e8ddd4;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #2c1a0e 0%, #5c3520 40%, #8b4e2f 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      opacity: 0.75;
+      margin-bottom: 28px;
+      letter-spacing: 2px;
+    }
+    .hero-dates {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-dates span {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px 60px;
+    }
+
+    /* ── DAY SECTION ── */
+    .day-section {
+      margin-top: 36px;
+    }
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .day-num {
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .day-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      flex: 1;
+    }
+    .day-date {
+      font-size: 12px;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent) 0%, var(--border) 100%);
+      border-radius: 2px;
+    }
+
+    /* ── TIMELINE ITEM ── */
+    .tl-item {
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -21px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--cream);
+      z-index: 1;
+    }
+
+    /* time stamp rows */
+    .tl-time {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* transport row */
+    .tl-transport {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: var(--warm);
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .tl-transport::before {
+      content: '';
+      position: absolute;
+      left: -21px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--cream);
+      z-index: 1;
+    }
+
+    /* card of locations */
+    .tl-card {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .tl-card-header {
+      background: linear-gradient(135deg, var(--tag-bg), var(--white));
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent2);
+      letter-spacing: 1px;
+    }
+    .tl-places {
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .tl-place {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .tl-place .pin {
+      color: var(--pin);
+      font-size: 13px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    .tl-place .note {
+      font-size: 11px;
+      color: var(--text-light);
+      font-weight: 400;
+      margin-left: 4px;
+    }
+    .tl-place.food .pin { color: #e07b2a; }
+    .tl-place.night .pin { color: #9b6bcc; }
+
+    /* meal badge */
+    .meal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #fff4e8;
+      border: 1px solid #f0d5ba;
+      color: #c47030;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+    }
+
+    /* home/hotel marker */
+    .tl-home {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-light);
+      padding: 8px 12px;
+      background: var(--warm);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    /* divider between days */
+    .day-divider {
+      text-align: center;
+      margin: 28px 0 0;
+      position: relative;
+    }
+    .day-divider::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; top: 50%;
+      height: 1px;
+      background: var(--border);
+    }
+    .day-divider span {
+      position: relative;
+      background: var(--cream);
+      padding: 0 14px;
+      font-size: 16px;
+    }
+
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-light);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* responsive */
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 1.8rem; }
+      .tl-place { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ──────────────── HERO ──────────────── -->
+<div class="hero">
+  <div class="hero-badge">TRAVEL DIARY</div>
+  <h1>福岡</h1>
+  <p class="hero-sub">FUKUOKA · JAPAN · 2025</p>
+  <div class="hero-dates">
+    <span>Day 1 · 5/10</span>
+    <span>Day 2 · 5/11</span>
+    <span>Day 3 · 5/12</span>
+    <span>Day 4 · 5/13</span>
+    <span>Day 5 · 5/14</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════ DAY 1 ══════════════ -->
+  <div class="day-section">
+    <div class="day-header">
+      <span class="day-num">DAY 1</span>
+      <span class="day-title">抵達博多 · 市區探索</span>
+      <span class="day-date">5 / 10</span>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">11:00 抵達</div>
+        <div class="tl-card">
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 機場快線</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 5 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-card-header">🏨 CHECK IN</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 博多站</div>
+            <div class="tl-place"><span class="pin">📍</span> 住宿 · 放行李</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚶 15 分鐘 &nbsp;·&nbsp; 🚌 5 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-card-header">🍜 午餐 &amp; 購物</div>
+          <div class="tl-places">
+            <div class="tl-place food"><span class="pin">📍</span> shin shin 拉麵</div>
+            <div class="tl-place"><span class="pin">📍</span> 博多百貨公司們</div>
+            <div class="tl-place"><span class="pin">📍</span> dacomecca</div>
+            <div class="tl-place"><span class="pin">📍</span> Lopia</div>
+            <div class="tl-place"><span class="pin">📍</span> Full full</div>
+            <div class="tl-place food"><span class="pin">📍</span> 麵屋烏龍麵</div>
+            <div class="tl-place food"><span class="pin">📍</span> 努努雞</div>
+            <div class="tl-place"><span class="pin">📍</span> fuk coffee</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 5 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-card-header">⛩️ 傍晚散步</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 櫛田神社</div>
+            <div class="tl-place"><span class="pin">📍</span> 川端通商店街</div>
+            <div class="tl-place"><span class="pin">📍</span> 博多運河城</div>
+            <div class="tl-place"><span class="pin">📍</span> 中州屋台</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-home">🏠 回住宿</div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-card-header">🌙 宵夜</div>
+          <div class="tl-places">
+            <div class="tl-place night"><span class="pin">📍</span> 前田屋牛雜鍋 / 雞皮串燒</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="day-divider"><span>✦</span></div>
+
+  <!-- ══════════════ DAY 2 ══════════════ -->
+  <div class="day-section">
+    <div class="day-header">
+      <span class="day-num">DAY 2</span>
+      <span class="day-title">太宰府 · 麵包超人 · 燒肉</span>
+      <span class="day-date">5 / 11</span>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">11:00 出發</div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 30 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">11:30 – 14:30 ﹙3 小時﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">⛩️ 太宰府</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 太宰府天滿宮 · 表參道</div>
+            <div class="tl-place food"><span class="pin">📍</span> 一蘭拉麵<span class="meal-badge">午餐</span></div>
+            <div class="tl-place"><span class="pin">📍</span> 竈門神社</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 40 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">15:15 – 17:15 ﹙2 小時﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🍞 麵包超人博物館</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 麵包超人博物館</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 15 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">17:45 – 19:15 ﹙訂位﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🔥 燒肉</div>
+          <div class="tl-places">
+            <div class="tl-place food"><span class="pin">📍</span> 藥院燒肉 <span class="note">用餐限時 90 分鐘</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 16 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">19:30 – 20:45</div>
+        <div class="tl-card">
+          <div class="tl-card-header">✨ 夜景 &amp; 鋼彈</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> LaLa port</div>
+            <div class="tl-place"><span class="pin">📍</span> 鋼彈表演 <span class="note">19:00–21:00，每 30 分鐘一次</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 7 分鐘
+      </div>
+
+      <div class="tl-home">🏠 回住宿</div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-card-header">🌙 宵夜</div>
+          <div class="tl-places">
+            <div class="tl-place night"><span class="pin">📍</span> 前田屋牛雜鍋 / 雞皮串燒</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="day-divider"><span>✦</span></div>
+
+  <!-- ══════════════ DAY 3 ══════════════ -->
+  <div class="day-section">
+    <div class="day-header">
+      <span class="day-num">DAY 3</span>
+      <span class="day-title">九州動物園 · 由布院</span>
+      <span class="day-date">5 / 12</span>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">7:30 出發</div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 2 小時
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">9:30 – 11:30 ﹙2 小時﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🦒 九州動物園</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 九州動物園</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 25 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:00 – 15:30 ﹙3.5 小時﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🌿 由布院</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 由布院 · 湯之坪 · 金鱗湖</div>
+            <div class="tl-place food"><span class="pin">📍</span> 釜飯・心<span class="meal-badge">午餐</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 2 小時
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">17:30</div>
+        <div class="tl-card">
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 博多晃晃</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">18:15 – 20:15</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🍢 串燒晚餐</div>
+          <div class="tl-places">
+            <div class="tl-place food"><span class="pin">📍</span> 鳥貴族串燒 博多店</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚶 15 分鐘 &nbsp;·&nbsp; 🚌 5 分鐘
+      </div>
+
+      <div class="tl-home">🏠 回住宿</div>
+
+    </div>
+  </div>
+  <div class="day-divider"><span>✦</span></div>
+
+  <!-- ══════════════ DAY 4 ══════════════ -->
+  <div class="day-section">
+    <div class="day-header">
+      <span class="day-num">DAY 4</span>
+      <span class="day-title">糸島 · TeamLab · 福岡塔</span>
+      <span class="day-date">5 / 13</span>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">10:00 出發</div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 45 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:50 – 13:00 ﹙2 小時﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🌊 糸島</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 夫婦岩</div>
+            <div class="tl-place food"><span class="pin">📍</span> 糸島海鮮食堂</div>
+            <div class="tl-place"><span class="pin">📍</span> 糸島茶屋</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 30 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">13:30 – 14:00 ﹙30 分鐘﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🍮 甜點</div>
+          <div class="tl-places">
+            <div class="tl-place food"><span class="pin">📍</span> 鹽布丁</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 45 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">14:45 – 18:30 ﹙3.5 小時﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🎡 百道濱園區</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> TeamLab</div>
+            <div class="tl-place"><span class="pin">📍</span> 絕景 3 兄弟</div>
+            <div class="tl-place"><span class="pin">📍</span> 三麗鷗夢幻公園</div>
+            <div class="tl-place"><span class="pin">📍</span> V-World AREA 虛擬體驗</div>
+            <div class="tl-place"><span class="pin">📍</span> 王貞治棒球博物館</div>
+            <div class="tl-place"><span class="pin">📍</span> FUK COFFEE</div>
+            <div class="tl-place food"><span class="pin">📍</span> 晚餐</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 5 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">18:10 – 19:10 ﹙1 小時﹚</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🗼 福岡塔</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 福岡塔 <span class="note">夜景</span></div>
+            <div class="tl-place food"><span class="pin">📍</span> 晚餐</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 20 分鐘
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">19:30</div>
+      </div>
+
+      <div class="tl-home">🏠 回住宿</div>
+
+    </div>
+  </div>
+  <div class="day-divider"><span>✦</span></div>
+
+  <!-- ══════════════ DAY 5 ══════════════ -->
+  <div class="day-section">
+    <div class="day-header">
+      <span class="day-num">DAY 5</span>
+      <span class="day-title">大濠公園 · 天神 · 回家</span>
+      <span class="day-date">5 / 14</span>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">10:00 退房</div>
+        <div class="tl-card">
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 博多站寄放行李</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 5 分鐘 → 大濠公園站
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">11:00</div>
+        <div class="tl-card">
+          <div class="tl-card-header">🌸 大濠公園</div>
+          <div class="tl-places">
+            <div class="tl-place food"><span class="pin">📍</span> 橙・水炊鍋</div>
+            <div class="tl-place"><span class="pin">📍</span> 大濠公園</div>
+            <div class="tl-place"><span class="pin">📍</span> 福岡美術館</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 5 分鐘 → 天神站
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-card-header">🛍️ 天神購物</div>
+          <div class="tl-places">
+            <div class="tl-place food"><span class="pin">📍</span> shin shin 拉麵</div>
+            <div class="tl-place"><span class="pin">📍</span> 警固神社 · 藍瓶</div>
+            <div class="tl-place"><span class="pin">📍</span> 天神商圈 · 地下街</div>
+            <div class="tl-place food"><span class="pin">📍</span> Daco 甜甜圈</div>
+            <div class="tl-place food"><span class="pin">📍</span> I'm donuts</div>
+            <div class="tl-place food"><span class="pin">📍</span> full full 明太子麵包</div>
+            <div class="tl-place food"><span class="pin">📍</span> 麵屋兼虎</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 5 分鐘 → 博多站
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 領行李</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 5 分鐘 → 博多站 → 🚌 10 分鐘 → 福岡機場國內線
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">18:00</div>
+      </div>
+
+      <div class="tl-item tl-transport">
+        🚌 約 15 分鐘 → 福岡機場國際線
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-card-header">✈️ 回家</div>
+          <div class="tl-places">
+            <div class="tl-place"><span class="pin">📍</span> 福岡國際機場 · 出發</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  福岡 5 日遊 · 2025.05.10 – 05.14 &nbsp;✈️
+</footer>
+
+</body>
+</html>
