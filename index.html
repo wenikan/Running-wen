@@ -298,6 +298,25 @@
       border-top: 1px solid var(--border);
     }
 
+    /* maps tap */
+    .tl-place.mappable {
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .tl-place.mappable:hover,
+    .tl-place.mappable:active {
+      background: rgba(212, 133, 90, 0.1);
+    }
+    .tl-place.mappable::after {
+      content: '↗';
+      font-size: 10px;
+      color: var(--text-light);
+      margin-left: auto;
+      padding-left: 6px;
+      opacity: 0.5;
+    }
+
     /* responsive */
     @media (max-width: 400px) {
       .hero h1 { font-size: 1.8rem; }
@@ -764,6 +783,17 @@
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   }
+
+  document.querySelectorAll('.tl-place').forEach(el => {
+    const clone = el.cloneNode(true);
+    clone.querySelectorAll('.note, .meal-badge').forEach(n => n.remove());
+    const name = clone.textContent.replace(/📍/g, '').trim();
+    if (!name) return;
+    el.classList.add('mappable');
+    el.addEventListener('click', () => {
+      window.open('https://maps.google.com/?q=' + encodeURIComponent(name + ' 福岡'), '_blank');
+    });
+  });
 </script>
 </body>
 </html>
